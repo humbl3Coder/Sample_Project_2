@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Landing">
+   <children>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1000.0">
+         <children>
+            <Label alignment="TOP_LEFT" text="Welcome to Schedule Maker">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="50.0" prefHeight="50.0" prefWidth="250.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionReportsForm" prefWidth="75.0" text="Reports" />
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="250.0" layoutY="50.0" prefHeight="50.0" prefWidth="250.0">
+         <children>
+            <Label text="Upcoming Appointments">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="500.0" layoutY="50.0" prefHeight="50.0" prefWidth="500.0" spacing="20.0">
+         <children>
+            <RadioButton fx:id="weekRBtn" mnemonicParsing="false" onAction="#onWeekly" text="Current Week">
+               <toggleGroup>
+                  <ToggleGroup fx:id="WorMTG" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="monthRBtn" mnemonicParsing="false" onAction="#onMonthly" text="Current Month" toggleGroup="$WorMTG" />
+            <RadioButton fx:id="allRBtn" mnemonicParsing="false" onAction="#onAll" text="All" toggleGroup="$WorMTG" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <VBox layoutY="100.0" prefHeight="200.0" prefWidth="1000.0">
+         <children>
+            <TableView fx:id="AppTableView" prefHeight="200.0" prefWidth="1000.0">
+              <columns>
+                <TableColumn fx:id="appIDCol" prefWidth="53.0" text="App_ID" />
+                <TableColumn fx:id="appTitleCol" prefWidth="150.0" text="Title" />
+                  <TableColumn fx:id="appDescCol" prefWidth="125.0" text="Description" />
+                  <TableColumn fx:id="appLocCol" prefWidth="110.0" text="Location" />
+                  <TableColumn fx:id="appConCol" prefWidth="100.0" text="Contact" />
+                  <TableColumn fx:id="appTypeCol" prefWidth="100.0" text="Type" />
+                  <TableColumn fx:id="appStartCol" prefWidth="110.0" text="Start Date/Time" />
+                  <TableColumn fx:id="appEndCol" prefWidth="110.0" text="End Date/Time" />
+                  <TableColumn fx:id="appCIDCol" prefWidth="50.0" text="Cus_ID" />
+                  <TableColumn fx:id="appUIDCol" prefWidth="50.0" text="Use_ID" />
+              </columns>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="500.0" layoutY="300.0" prefHeight="50.0" prefWidth="500.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionAddAppForm" prefWidth="75.0" text="Add" />
+            <Button mnemonicParsing="false" onAction="#onActionModAppForm" prefWidth="75.0" text="Modify" />
+            <Button mnemonicParsing="false" onAction="#onActionDelApp" prefWidth="75.0" text="Delete" />
+         </children>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="350.0" prefHeight="50.0" prefWidth="1000.0">
+         <children>
+            <Label text="Customers">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+         </children>
+      </HBox>
+      <VBox layoutY="400.0" prefHeight="200.0" prefWidth="1000.0">
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <children>
+            <TableView fx:id="CusTableView" prefHeight="200.0" prefWidth="1000.0">
+              <columns>
+                <TableColumn fx:id="cusCIDCol" prefWidth="50.0" text="C_ID" />
+                <TableColumn fx:id="cusCusNameCol" prefWidth="175.0" text="Customer Name" />
+                  <TableColumn fx:id="cusAddCol" prefWidth="210.0" text="Address" />
+                  <TableColumn fx:id="cusPostCol" prefWidth="175.0" text="Postal Code" />
+                  <TableColumn fx:id="cusPhoneCol" prefWidth="175.0" text="Phone Number" />
+                  <TableColumn fx:id="cusDivCol" prefWidth="173.0" text="Division" />
+              </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" layoutY="600.0" prefHeight="50.0" prefWidth="1000.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionAddCusForm" prefWidth="75.0" text="Add" />
+            <Button mnemonicParsing="false" onAction="#onActionModCusForm" prefWidth="75.0" text="Modify" />
+            <Button mnemonicParsing="false" onAction="#onActionDelCus" prefWidth="75.0" text="Delete" />
+         </children>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="650.0" prefHeight="50.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="errMessageLbl">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="500.0" layoutY="650.0" prefHeight="50.0" prefWidth="500.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionLogOut" prefWidth="75.0" text="Logout" />
+            <Button mnemonicParsing="false" onAction="#onActionExitApp" prefWidth="75.0" text="Exit" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="300.0" prefHeight="50.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="appMessageLbl">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
